@@ -1,0 +1,12 @@
+body {
+    background-color: lightgray;
+}
+
+h1 {
+    color: black;
+}
+
+a {
+    color: blue;
+    text-decoration: none;
+}
