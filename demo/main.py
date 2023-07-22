@@ -2,11 +2,24 @@
 from flask import Flask, render_template, request
 import requests
 import json
-
+import os
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
+import pymongo
 
+
+'''Mongo DB'''
+# export MONGO_KEY='<password>' 
+mongo_password = os.environ.get('MONGO_KEY')
+client = pymongo.MongoClient(f"mongodb+srv://qwe9887476:{mongo_password}@cluster0.zflrkw0.mongodb.net/?retryWrites=true&w=majority")
+db = client.taipei.case
+# for x in db.find():
+#     print(x['li'])
+
+
+
+'''Flask'''
 app = Flask(__name__)
 
 @app.route('/')
@@ -24,6 +37,7 @@ def analysis():
 @app.route('/report')
 def report():
     return render_template('report.html')
+
 
 @app.route("/", methods=['POST'])
 def linebot():
