@@ -3,6 +3,7 @@
 ### Packages
 ```
 pip install Flask
+pip install line-bot-sdk
 ```
 
 ### Demo
