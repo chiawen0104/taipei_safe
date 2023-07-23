@@ -10,7 +10,7 @@ import pymongo
 
 
 '''Mongo DB'''
-# please set the environment variable before excuting the code
+# please set the environment variable before executing the code
 # export MONGO_KEY='asdzxc8914' 
 mongo_password = os.environ.get('MONGO_KEY')
 client = pymongo.MongoClient(f"mongodb+srv://qwe9887476:{mongo_password}@cluster0.zflrkw0.mongodb.net/?retryWrites=true&w=majority")
