@@ -10,12 +10,15 @@ import pymongo
 
 
 '''Mongo DB'''
-# export MONGO_KEY='<password>' 
+# please set the environment variable before excuting the code
+# export MONGO_KEY='asdzxc8914' 
 mongo_password = os.environ.get('MONGO_KEY')
 client = pymongo.MongoClient(f"mongodb+srv://qwe9887476:{mongo_password}@cluster0.zflrkw0.mongodb.net/?retryWrites=true&w=majority")
 db = client.taipei.case
-# for x in db.find():
-#     print(x['li'])
+
+# query data in database 
+for x in db.find():
+    print(x)
 
 
 

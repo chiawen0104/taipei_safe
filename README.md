@@ -4,8 +4,7 @@
 ## Packages
 ```
 pip install Flask
-python -m pip install pymongo==3.6
-(pip install --upgrade pymongo)
+pip install pymongo
 pip install dnspython
 pip install line-bot-sdk
 ```
@@ -17,13 +16,16 @@ python3 demo/main.py
 ```
 
 
-## Mongo DB
-### Connect to cluster
+## Mongo DB 
+You don't need to use these commands when running the demo.
+
+### Connect to the cluster 
 ```
+python -m pip install pymongo==3.6
 python3 data/connect_mongo.py
 ```
 
-### Import json to database
+### Import json data to the database
 ```
 python3 data/data_to_mongo.py
 ```
