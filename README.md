@@ -17,7 +17,7 @@ python3 demo/main.py
 
 
 ## Mongo DB 
-You don't need to use these commands when running the demo.
+You don't need to use these commands when running demo.
 
 ### Connect to the cluster 
 ```
