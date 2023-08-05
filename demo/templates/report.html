@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>我要報案</title>
+    <title>案件新增</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='report_styles.css') }}">
 </head>
 <body>
-    <h1>我要報案</h1>
-    <!-- 在此放置案件回報的內容 -->
+    <h1>案件新增</h1>
+    <form method="post" action="/report">
+        <label for="li">里名：</label>
+        <input type="text" id="li" name="li" placeholder="XX里" required><br>
+
+        <label for="date">日期：</label>
+        <input type="text" id="date" name="date" placeholder="yyyy-mm-dd" required><br>
+
+        <label for="type">類型：</label>
+        <select id="type" name="type">
+            <option value="home">住宅竊盜</option>
+            <option value="motocycle">機車竊盜</option>
+            <option value="car">汽車竊盜</option>
+            <option value="bike">自行車竊盜</option>
+            <option value="burglary">強盜</option>
+            <option value="robbery">搶奪</option>
+        </select><br>
+
+        <input type="submit" value="送出">
+        {% if document == '' %}
+            <p>里名錯誤，無該里資料</p>
+        {% elif document %}
+            <p>目前{{ document.li }}的治安燈號為：{{ document.label }}</p>
+        {% else %}
+            <p>請輸入上述資料</p>
+        {% endif %}
+    </form>
     <div class="back"><a href="/">回到主選單</a></div>
 </body>
 </html>

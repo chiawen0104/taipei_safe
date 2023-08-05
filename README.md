@@ -1,7 +1,7 @@
 # taipei_safe
 
 
-## Packages
+## Package
 ```
 pip install Flask
 pip install pymongo
@@ -17,7 +17,7 @@ python3 demo/main.py
 
 
 ## Mongo DB 
-You don't need to use these commands when running demo.
+Do not use these commands when running demo.
 
 ### Connect to the cluster 
 ```

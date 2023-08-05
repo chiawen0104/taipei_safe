@@ -7,6 +7,7 @@ from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
 import pymongo
+import numpy as np
 
 
 '''Mongo DB'''
@@ -17,8 +18,8 @@ client = pymongo.MongoClient(f"mongodb+srv://qwe9887476:{mongo_password}@cluster
 db = client.taipei.case
 
 # query data in database 
-for x in db.find():
-    print(x)
+# for x in db.find():
+#     print(x)
 
 
 
@@ -29,17 +30,64 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
+
 @app.route('/map')
 def map():
     return render_template('map.html')
+
 
 @app.route('/analysis')
 def analysis():
     return render_template('analysis.html')
 
-@app.route('/report')
+
+
+@app.route('/report', methods=['GET', 'POST'])
 def report():
-    return render_template('report.html')
+
+    document = None
+    if request.method == 'POST':
+        li = request.form['li']
+        date = request.form['date']
+        case_type = request.form['type']
+
+        query = {'li':li}
+        if db.count_documents(query) > 0:
+            # update one li's data
+            db.update_one(query, {'$inc': {case_type: 1, 'total': 1}})
+
+            # compute new median and std of total values
+            total_list = []
+            for old in db.find():
+                total_list.append(old['total'])
+            
+            new_med = np.median(total_list)
+            new_std = np.std(total_list)
+            green_score = new_med - new_std
+            red_score = new_med + new_std
+            
+            # update each li's label
+            for new in db.find():
+                new_label = ''
+                if new['total'] > red_score: new_label = 'red'
+                elif new['total'] < green_score: new_label = 'green'
+                else: new_label = 'yellow'
+                if new['label'] != new_label:
+                    db.update_one(
+                        {'li': new['li']},
+                        {'$set': {'label': new_label}}
+                    )
+
+            document = db.find_one(query)
+            print('Finish db update!')
+
+        else:
+            document = ''
+            print('No data found!')
+
+
+    return render_template('report.html', document=document)
+
 
 
 @app.route("/", methods=['POST'])
@@ -91,5 +139,7 @@ def reply_message(msg, rk, token):
     print(req.text)
 
 
+
+
 if __name__ == '__main__':
-    app.run()
+    app.run(host="0.0.0.0", port=8888, debug=True)
