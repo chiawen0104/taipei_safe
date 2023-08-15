@@ -98,7 +98,7 @@ def linebot():
         json_data = json.loads(body)                        
         access_token = '你的 line token' ### 輸入自己的 line token
         secret = '你的 line secret' ### 輸入自己的 line secret
-        line_bot_api = LineBotApi(access_token)              
+        line_bot_api = LineBotApi(access_token)          
         handler = WebhookHandler(secret)                     
         signature = request.headers['X-Line-Signature']      
         handler.handle(body, signature)                      
