@@ -44,3 +44,78 @@ h1 {
     font-weight:bold;
     font-size: 17px;
 }
+.itemscontent{
+    text-align:center;
+}
+.item{
+    background-color:rgba(244, 134, 0, 0.462);
+    border: 5px solid  rgb(244, 134, 0, 0.8);
+    border-radius: 10px;
+    height: 30px;
+    width: 100px;
+    margin:20px 5px;
+    padding:10px;
+    font-size:25px;
+ }
+
+.inputframe{
+    border: 5px solid  rgb(244, 134, 0, 0.8);
+    border-radius: 10px;
+    height: 15px;
+    width: 200px;
+    margin:20px 10px;
+    padding:20px;
+    font-size:20px;
+}
+
+.typeitem{
+    background-color:rgba(244, 134, 0, 0.462);
+    border: 5px solid  rgb(244, 134, 0, 0.8);
+    border-radius: 10px;
+    height: 50px;
+    width: 100px;
+    margin:20px 5px;
+    padding:10px;
+    font-size:25px;
+ }
+
+.typeframe{
+    border: 5px solid  rgb(244, 134, 0, 0.8);
+    border-radius: 10px;
+    height: 65px;
+    width: 250px;
+    margin:20px 10px;
+    padding:10px;
+    font-size:20px;
+}
+
+.submitbutton{
+    background-color: rgba(255, 166, 0, 0.806);
+    padding: 20px 20px;
+    margin:0px 10px;
+    cursor: pointer;
+    border: 5px solid  rgb(244, 134, 0, 0.8);
+    border-radius: 20px; 
+    border-style:inset;
+    height: 80px;
+    width: 250px;
+    margin:30px 10px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight:bold;
+    text-align:center;
+    line-height:40px; 
+    transition: all .3s linear;
+}
+
+.submitbutton:hover {
+    background-color: rgb(244, 134, 0, 0.8);
+    font-size: 35px;
+    line-height:40px;
+}
+
+.result{
+    font-size: 35px;
+    margin:0px 75px;
+}
