@@ -1,0 +1,44 @@
+body {
+    background-color: rgba(255, 221, 0, 0.583);
+}
+
+h1 {
+    color: black;
+    font-size: 55px;
+    font-weight:bold;
+    text-align: center; 
+    line-height: 3;  
+    text-shadow: 0.05em 0.1em 0.05em rgba(255, 166, 0, 0.806);
+    font-family:"Microsoft JhengHei";  
+}
+
+.group2{
+    padding:0;
+    display:flex; 
+    justify-content:space-evenly; 
+    list-style: none; 
+}
+ 
+.button2 a{
+    background-color: rgba(255, 166, 0, 0.806);
+    padding: 40px 40px;
+    margin:20px 0px;
+    text-align:center;
+    display: block;
+    cursor: pointer;
+    border: 5px solid  rgb(244, 134, 0, 0.8);
+    transition: all .3s linear;
+    border-radius: 20px; 
+    display: block;
+    color: #000000;
+    text-decoration: none;
+    font-size: 35px;
+    font-weight:bold;
+    transition: all .3s linear;
+}
+.button2 a:hover {
+    background-color: rgb(244, 134, 0, 0.8);
+    color: rgb(255, 255, 255);
+    font-weight:bold;
+    font-size: 40px;
+}
