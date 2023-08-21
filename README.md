@@ -3,7 +3,7 @@
 
 ## Package
 ```
-pip install -r requirements.txt
+pip install -r deploy/requirements.txt
 ```
 
 ## Demo
