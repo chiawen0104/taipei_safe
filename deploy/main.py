@@ -1,5 +1,5 @@
 # encoding = "utf-8"
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import requests
 import json
 import os
@@ -29,6 +29,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
+    linebot()
     return render_template('index.html')
 
 
@@ -45,7 +46,6 @@ def analysis():
 
 @app.route('/report', methods=['GET', 'POST'])
 def report():
-
     document = None
     if request.method == 'POST':
         li = request.form['li']
@@ -86,75 +86,75 @@ def report():
             document = ''
             print('No data found!')
 
-
     return render_template('report.html', document=document)
 
 
+@app.route("/", methods=['POST'])
+def linebot():
+    body = request.get_data(as_text=True)                   
+    try:
+        json_data = json.loads(body)
+        ### 輸入自己的 line token                        
+        access_token = '+GVOs2NeuMmxAaJ+3c2YaIy15m2I8isYRSnboilPlYbwMqwzQGB1JM2SH2CGqw8Z6865TMX+2KYYwn6pEZAtNs53Z0lRisP8pPTmtq3v7pECzYcgLjGBD+5YKVUrTSxL90zaNESyz54HiIbrenJpcgdB04t89/1O/w1cDnyilFU=' 
+        ### 輸入自己的 line secret
+        secret = '85817508663a7d369c69e85491555bc3' 
+        line_bot_api = LineBotApi(access_token)          
+        handler = WebhookHandler(secret)                     
+        signature = request.headers['X-Line-Signature']      
+        handler.handle(body, signature)                      
+        tk = json_data['events'][0]['replyToken']           
+        type = json_data['events'][0]['message']['type']     
+        print(json_data) 
 
-# @app.route("/", methods=['POST'])
-# def linebot():
-#     body = request.get_data(as_text=True)                   
-#     try:
-#         json_data = json.loads(body)                        
-#         access_token = '你的 line token' ### 輸入自己的 line token
-#         secret = '你的 line secret' ### 輸入自己的 line secret
-#         line_bot_api = LineBotApi(access_token)          
-#         handler = WebhookHandler(secret)                     
-#         signature = request.headers['X-Line-Signature']      
-#         handler.handle(body, signature)                      
-#         tk = json_data['events'][0]['replyToken']           
-#         type = json_data['events'][0]['message']['type']     
-#         print(json_data) 
+        if type =='text':
+            msg = json_data['events'][0]['message']['text']  
+            print(msg)                                      
+            reply = msg
+        ###### 使用者傳送地址訊息
+        elif type == 'location':
+            lng = json_data['events'][0]['message']['longitude']
+            lat = json_data['events'][0]['message']['latitude'] 
+            lat_lng = f"{lat}, {lng}"
+            print(lat_lng)
+            geolocator = Nominatim(user_agent="geoexercise")
+            location = geolocator.reverse(lat_lng)
+            full_addr_list = location.address.split(",")
+            for i in full_addr_list:
+                if "里" in i: village = i.strip()
+                else: "請再輸入更精確的地址哦~"
+            print(str(village))
 
-#         if type =='text':
-#             msg = json_data['events'][0]['message']['text']  
-#             print(msg)                                      
-#             reply = msg
-#         ###### 使用者傳送地址訊息
-#         elif type == 'location':
-#             lng = json_data['events'][0]['message']['longitude']
-#             lat = json_data['events'][0]['message']['latitude'] 
-#             lat_lng = f"{lat}, {lng}"
-#             print(lat_lng)
-#             geolocator = Nominatim(user_agent="geoexercise")
-#             location = geolocator.reverse(lat_lng)
-#             full_addr_list = location.address.split(",")
-#             for i in full_addr_list:
-#                 if "里" in i: village = i.strip()
-#                 else: "請再輸入更精確的地址哦~"
-#             print(str(village))
+            for i in db.find():
+                if i['li'] == village:
+                    if i['label'] == 'green': color = "綠燈 🟢🟢🟢"
+                    elif i['label'] == 'yellow': color = "黃燈 🟡🟡🟡"
+                    else: color = "紅燈 🔴🔴🔴" 
+                    reply = f"以下為 ▶ {i['li']} ◀ 治安資訊:\n🚩強盜: {i['burglary']} 件\n🚩搶劫: {i['robbery']} 件\n🚩自行車竊盜: {i['bike']} 件\n🚩機車竊盜: {i['motocycle']} 件\n🚩汽車竊盜: {i['car']} 件\n🚩住宅竊盜: {i['home']} 件\n🚩總案件數: {i['total']} 件\n\n🚦治安紅綠燈: {color}"
+                    break
+                else: reply = "查無資料OAO"
+        else:
+            reply = '我目前還不太懂QAQ'
 
-#             for i in db.find():
-#                 if i['li'] == village:
-#                     if i['label'] == 'green': color = "綠燈 🟢🟢🟢"
-#                     elif i['label'] == 'yellow': color = "黃燈 🟡🟡🟡"
-#                     else: color = "紅燈 🔴🔴🔴" 
-#                     reply = f"以下為 ▶ {i['li']} ◀ 治安資訊:\n🚩強盜: {i['burglary']} 件\n🚩搶劫: {i['robbery']} 件\n🚩自行車竊盜: {i['bike']} 件\n🚩機車竊盜: {i['motocycle']} 件\n🚩汽車竊盜: {i['car']} 件\n🚩住宅竊盜: {i['home']} 件\n🚩總案件數: {i['total']} 件\n\n🚦治安紅綠燈: {color}"
-#                     break
-#                 else: reply = "查無資料OAO"
-#         else:
-#             reply = '我目前還不太懂QAQ'
-
-#         print(reply)
-#         line_bot_api.reply_message(tk, TextSendMessage(reply)) #回傳訊息
-#     except:
-#         print(body)                                         
+        print(reply)
+        line_bot_api.reply_message(tk, TextSendMessage(reply)) #回傳訊息
+    except:
+        print(body)                                         
     
-#     return 'OK'                                              
+    # return 'OK'                                              
 
 
-# # LINE 回傳訊息函式
-# def reply_message(msg, rk, token):
-#     headers = {'Authorization':f'Bearer {token}','Content-Type':'application/json'}
-#     body = {
-#     'replyToken':rk,
-#     'messages':[{
-#             "type": "text",
-#             "text": msg
-#         }]
-#     }
-#     req = requests.request('POST', 'https://api.line.me/v2/bot/message/reply', headers=headers, data=json.dumps(body).encode('utf-8'))
-#     print(req.text)
+# LINE 回傳訊息函式
+def reply_message(msg, rk, token):
+    headers = {'Authorization':f'Bearer {token}','Content-Type':'application/json'}
+    body = {
+    'replyToken':rk,
+    'messages':[{
+            "type": "text",
+            "text": msg
+        }]
+    }
+    req = requests.request('POST', 'https://api.line.me/v2/bot/message/reply', headers=headers, data=json.dumps(body).encode('utf-8'))
+    print(req.text)
 
 
 def main(request):
@@ -168,6 +168,7 @@ def main(request):
         return report()
     else:
         return 'Page not found', 404
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8888, debug=True)
