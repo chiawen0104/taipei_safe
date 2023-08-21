@@ -10,7 +10,6 @@ import pymongo
 import numpy as np
 from geopy.geocoders import Nominatim
 
-
 '''Mongo DB'''
 # please set the environment variable before executing the code
 # export MONGO_KEY='asdzxc8914' 
@@ -27,6 +26,8 @@ db = client.taipei.case
 
 '''Flask'''
 app = Flask(__name__)
+# default password
+password = '1234'
 
 @app.route('/')
 def home():
@@ -47,11 +48,16 @@ def analysis():
 @app.route('/report', methods=['GET', 'POST'])
 def report():
 
-    document = None
+    sign, render_li, render_label = None, None, None
+
     if request.method == 'POST':
         li = request.form['li']
-        date = request.form['date']
+        input_password = request.form['password']
         case_type = request.form['type']
+
+        if input_password != password:
+            sign = 'wrong'
+            return render_template('report.html', sign=sign, li=render_li, label=render_label)
 
         query = {'li':li}
         if db.count_documents(query) > 0:
@@ -83,13 +89,17 @@ def report():
             document = db.find_one(query)
             print('Finish db update!')
 
+            sign = 'yes'
+            render_li = li
+            if document['label'] == 'red': render_label = '紅燈'
+            elif document['label'] == 'yellow': render_label = '黃燈'
+            else: render_label = '綠燈'
+
         else:
-            document = ''
+            sign = 'no'
             print('No data found!')
-
-
-    return render_template('report.html', document=document)
-
+        
+    return render_template('report.html', sign=sign, li=render_li, label=render_label)
 
 
 @app.route("/", methods=['POST'])
