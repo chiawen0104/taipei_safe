@@ -1,10 +1,14 @@
 # taipei_safe
 
 
-## Package
-```
-pip install -r deploy/requirements.txt
-```
+## Packages
+Flask==2.3.2
+requests==2.31.0
+pymongo==4.4.1
+numpy==1.23.1
+geopy==2.3.0
+dnspython==2.4.0
+line-bot-sdk==3.1.0
 
 ## Demo
 ```
