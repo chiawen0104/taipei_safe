@@ -14,7 +14,7 @@ from geopy.geocoders import Nominatim
 # please set the environment variable before executing the code
 # export MONGO_KEY='asdzxc8914' 
 # mongo_password = os.environ.get('MONGO_KEY')
-mongo_password = 'asdzxc8914' 
+mongo_password = os.environ.get('MONGO_KEY', 'asdzxc8914')
 client = pymongo.MongoClient(f"mongodb+srv://qwe9887476:{mongo_password}@cluster0.zflrkw0.mongodb.net/?retryWrites=true&w=majority")
 db = client.taipei.case
 
@@ -41,7 +41,8 @@ def map():
 
 @app.route('/analysis')
 def analysis():
-    return render_template('analysis.html')
+    imagePath = './static/images/regression'
+    return render_template('analysis.html', imagePath=imagePath)
 
 
 

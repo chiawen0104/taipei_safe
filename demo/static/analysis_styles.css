@@ -56,3 +56,21 @@ img{
     box-shadow: 3px 3px 4px #ccc;
     margin-right: 10px; 
 }
+
+/* 使用 CSS Flexbox 來水平排列元素 */
+.image-container {
+    display: flex;
+    flex-direction: row; /* 橫向排列 */
+    justify-content: center; /* 水平置中 */
+    align-items: center; /* 垂直置中 */
+}
+
+/* 調整圖片的大小和樣式 */
+.image-container img {
+    width: 400px; /* 調整圖片的寬度 */
+    height: auto; /* 自動計算高度以保持圖片比例 */
+}
+
+.indented-list {
+    text-indent: 10px;
+}
