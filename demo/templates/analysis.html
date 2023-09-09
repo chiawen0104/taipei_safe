@@ -1,21 +1,3 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <title>治安分析</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='analysis_styles.css') }}">
-</head>
-<body>
-    <h1>治安分析</h1>
-    <div class="back"><a href="/">回到主選單</a></div>
-    <div class = "images">
-        <figure>
-            <img src="./static/images/keyfactor_output.jpg" alt="主要影響治安因素"/>
-            <img src="./static/images/leveldistribution_output.jpg" alt="治安等級分布"/>
-            <br />
-    </div>
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,159 +8,113 @@
     <h1>治安分析</h1>
     <div class="back"><a href="/">回到主選單</a></div>
     
-    <!-- 目錄頁 -->
-    <div class="index">
-        <h2>目錄</h2>
-        <ul>
-            <li><a href="#comprehensive-analysis">綜合分析</a></li>
-            <li><a href="#regression-analysis">回歸分析</a></li>
-            <ul class="indented-list">
-                <li><a href="#v1">大學畢業人口比例</a></li>
-                <li><a href="#v2">公寓大廈守望相助隊比例</a></li>
-                <li><a href="#v3">戶數</a></li>
-                <li><a href="#v4">男女比例</a></li>
-                <li><a href="#v5">里守望相助隊比例</a></li>
-                <li><a href="#v6">所得中位數</a></li>
-                <li><a href="#v7">社區守望相助隊比例</a></li>
-                <li><a href="#v8">員警比例</a></li>
-                <li><a href="#v9">家戶聯防數</a></li>
-                <li><a href="#v10">高中畢業人口比例</a></li>
-                <li><a href="#v11">碩士畢業人口比例</a></li>
-                <li><a href="#v12">錄影監視器比例</a></li>
-                <li><a href="#v13">警民連線數</a></li>
-            </ul>
-        </ul>
-    </div>
-    
-    <!-- 綜合分析 -->
-    <section id="comprehensive-analysis">
-        <h2>綜合分析</h2>
-        <img src="./static/images/leveldistribution_output.jpg" alt="治安等級分布"/>
-        <p>依案件總和數量次數，分成綠、黃、紅三種治安等級，平均案件數為12.92件，中位數為11，案件數之標準差為9.12</p>
-        <p>黃色治安等級門檻=案件數之中位數+1標準差，則超過21個案件之里標為黃色。</p>
-        <p>紅色治安等級門檻=案件數之中位數+2標準差，超過30個案件之里標為紅色。</p>
-    </section>
-    
-    <!-- 回歸分析 -->
-    <section id="regression-analysis">
+    <section id="regression">
         <h2>回歸分析</h2>
+        <p>hint:回歸模型數學式</p>
+        <h3>摘要</h3>
+        <p>hint:舉例說明三個變數的係數意義</p>
+        <h3>重要變數</h3>
         <img src="./static/images/keyfactor_output.jpg" alt="主要影響治安因素"/>
-        <p>重要變數說明：</p>
 
-        
-        <!-- 重要變數 -->
-        <div class="v1" id="v1">
-            <h4>大學畢業人口比例</h4>
-            <iframe src="{{ imagePath }}/大學畢業人口比例/大學.txt" frameborder="0" scrolling="auto" width="100%" height="50"></iframe>
-            <div class="image-container">
-                <img src="{{ imagePath }}/大學畢業人口比例/大學1.png"/>
-            </div>
+        <h3>其他變數</h3>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+        <div class="wrap">
+        <table>
+            <tr>
+                <th style="width: 15%;">變數</th>
+                <th style="width: 35%;">圖一</th>
+                <th style="width: 35%;">圖二</th>
+                <th style="width: 15%;">說明</th>
+            </tr>
+            <tr>
+                <td>大學畢業人口比例</td>
+                <td><img src="{{ imagePath }}/大學畢業人口比例/大學1.png"/></td>
+                <td></td>
+                <td><iframe src="{{ imagePath }}/大學畢業人口比例/大學.txt" frameborder="0" scrolling="auto"></iframe></td>
+            </tr>
+            <tr>
+                <td>公寓大廈守望相助隊比例</td>
+                <td><img src="{{ imagePath }}/公寓大廈守望相助隊比例/公寓大廈1.png"/></td>
+                <td><img src="{{ imagePath }}/公寓大廈守望相助隊比例/公寓大廈2.png"/></td>
+                <td><iframe src="{{ imagePath }}/公寓大廈守望相助隊比例/公寓大廈.txt" frameborder="0" scrolling="auto"></iframe></td>
+            </tr>
+            <tr>
+                <td>戶數</td>
+                <td><img src="{{ imagePath }}/戶數/戶數1.png"/></td>
+                <td></td>
+                <td><iframe src="{{ imagePath }}/戶數/戶數.txt" frameborder="0" scrolling="auto"></iframe></td>
+            </tr>
+            <tr>
+                <td>男女比例</td>
+                <td><img src="{{ imagePath }}/男女比例/男女比例1.png"/></td>
+                <td><img src="{{ imagePath }}/男女比例/男女比例2.png"/></td>
+                <td><iframe src="{{ imagePath }}/男女比例/男女比例.txt" frameborder="0" scrolling="auto"></iframe></td>
+            </tr>
+            <tr>
+                <td>里守望相助隊比例</td>
+                <td><img src="{{ imagePath }}/里守望相助隊比例/里守望相助隊1.png"/></td>
+                <td><img src="{{ imagePath }}/里守望相助隊比例/里守望相助隊2.png"/></td>
+                <td><iframe src="{{ imagePath }}/里守望相助隊比例/里守望相助隊.txt" frameborder="0" scrolling="auto"></iframe></td>
+            </tr>
+            <tr>
+                <td>所得中位數</td>
+                <td><img src="{{ imagePath }}/所得中位數/所得中位數1.png"/></td>
+                <td></td>
+                <td><iframe src="{{ imagePath }}/所得中位數/所得中位數.txt" frameborder="0" scrolling="auto"></iframe></td>
+            </tr>
+            <tr>
+                <td>社區守望相助隊比例</td>
+                <td><img src="{{ imagePath }}/社區守望相助隊比例/社區守望相助隊1.png"/></td>
+                <td></td>
+                <td><iframe src="{{ imagePath }}/社區守望相助隊比例/社區守望相助隊.txt" frameborder="0" scrolling="auto"></iframe></td>
+            </tr>
+            <tr>
+                <td>員警比例</td>
+                <td><img src="{{ imagePath }}/員警比例/員警比例1.png"/></td>
+                <td><img src="{{ imagePath }}/員警比例/員警比例2.png"/></td>
+                <td><iframe src="{{ imagePath }}/員警比例/員警比例.txt" frameborder="0" scrolling="auto"></iframe></td>
+            </tr>
+            <tr>
+                <td>家戶聯防數</td>
+                <td><img src="{{ imagePath }}/家戶聯防數/家戶聯防數1.png"/></td>
+                <td><img src="{{ imagePath }}/家戶聯防數/家戶聯防數2.png"/></td>
+                <td><iframe src="{{ imagePath }}/家戶聯防數/家戶聯防數.txt" frameborder="0" scrolling="auto"></iframe></td>
+            </tr>
+            <tr>
+                <td>高中畢業人口比例</td>
+                <td><img src="{{ imagePath }}/高中畢業人口比例/高中1.png"/></td>
+                <td></td>
+                <td><iframe src="{{ imagePath }}/高中畢業人口比例/高中.txt" frameborder="0" scrolling="auto"></iframe></td>
+            </tr>
+            <tr>
+                <td>碩士畢業人口比例</td>
+                <td><img src="{{ imagePath }}/碩士畢業人口比例/碩士1.png"/></td>
+                <td></td>
+                <td><iframe src="{{ imagePath }}/碩士畢業人口比例/碩士.txt" frameborder="0" scrolling="auto"></iframe></td>
+            </tr>
+            <tr>
+                <td>錄影監視器比例</td>
+                <td><img src="{{ imagePath }}/錄影監視器比例/錄影監視器比例1.png"/></td>
+                <td><img src="{{ imagePath }}/錄影監視器比例/錄影監視器比例2.png"/></td>
+                <td><iframe src="{{ imagePath }}/錄影監視器比例/錄影監視器比例.txt" frameborder="0" scrolling="auto"></iframe></td>
+            </tr>
+            <tr>
+                <td>警民連線數</td>
+                <td><img src="{{ imagePath }}/警民連線數/警民連線數1.png"/></td>
+                <td><img src="{{ imagePath }}/警民連線數/警民連線數2.png"/></td>
+                <td><iframe src="{{ imagePath }}/警民連線數/警民連線數.txt" frameborder="0" scrolling="auto"></iframe></td>
+            </tr>
+        </table>
         </div>
+    </section>
 
-        <div class="v2" id="v2">
-            <h4>公寓大廈守望相助隊比例</h4>
-            <iframe src="{{ imagePath }}/公寓大廈守望相助隊比例/公寓大廈.txt" frameborder="0" scrolling="auto" width="100%" height="50"></iframe>
-            <div class="image-container">
-                <img src="{{ imagePath }}/公寓大廈守望相助隊比例/公寓大廈1.png"/>
-                <img src="{{ imagePath }}/公寓大廈守望相助隊比例/公寓大廈2.png"/>
-            </div>
-        </div>
-
-        <div class="v3" id="v3">
-            <h4>戶數</h4>
-            <iframe src="{{ imagePath }}/戶數/戶數.txt" frameborder="0" scrolling="auto" width="100%" height="50"></iframe>
-            <div class="image-container">
-                <img src="{{ imagePath }}/戶數/戶數1.png"/>
-            </div>
-        </div>
-
-        <div class="v4" id="v4">
-            <h4>男女比例</h4>
-            <iframe src="{{ imagePath }}/男女比例/男女比例.txt" frameborder="0" scrolling="auto" width="100%" height="50"></iframe>
-            <div class="image-container">
-                <img src="{{ imagePath }}/男女比例/男女比例1.png"/>
-                <img src="{{ imagePath }}/男女比例/男女比例2.png"/>
-            </div>
-        </div>
-
-        <div class="v5" id="v5">
-            <h4>里守望相助隊比例</h4>
-            <iframe src="{{ imagePath }}/里守望相助隊比例/里守望相助隊.txt" frameborder="0" scrolling="auto" width="100%" height="50"></iframe>
-            <div class="image-container">
-                <img src="{{ imagePath }}/里守望相助隊比例/里守望相助隊1.png"/>
-                <img src="{{ imagePath }}/里守望相助隊比例/里守望相助隊2.png"/>
-            </div>
-        </div>
-
-        <div class="v6" id="v6">
-            <h4>所得中位數</h4>
-            <iframe src="{{ imagePath }}/所得中位數/所得中位數.txt" frameborder="0" scrolling="auto" width="100%" height="50"></iframe>
-            <div class="image-container">
-                <img src="{{ imagePath }}/所得中位數/所得中位數1.png"/>
-            </div>
-        </div>
-
-        <div class="v7" id="v7">
-            <h4>社區守望相助隊比例</h4>
-            <iframe src="{{ imagePath }}/社區守望相助隊比例/社區守望相助隊.txt" frameborder="0" scrolling="auto" width="100%" height="50"></iframe>
-            <div class="image-container">
-                <img src="{{ imagePath }}/社區守望相助隊比例/社區守望相助隊1.png"/>
-            </div>
-        </div>
-
-        <div class="v8" id="v8">
-            <h4>員警比例</h4>
-            <iframe src="{{ imagePath }}/員警比例/員警比例.txt" frameborder="0" scrolling="auto" width="100%" height="50"></iframe>
-            <div class="image-container">
-                <img src="{{ imagePath }}/員警比例/員警比例1.png"/>
-                <img src="{{ imagePath }}/員警比例/員警比例2.png"/>
-                <img src="{{ imagePath }}/員警比例/員警比例3.png"/>
-            </div>
-        </div>
-
-        <div class="v9" id="v9">
-            <h4>家戶聯防數</h4>
-            <iframe src="{{ imagePath }}/家戶聯防數/家戶聯防數.txt" frameborder="0" scrolling="auto" width="100%" height="50"></iframe>
-            <div class="image-container">
-                <img src="{{ imagePath }}/家戶聯防數/家戶聯防數1.png"/>
-                <img src="{{ imagePath }}/家戶聯防數/家戶聯防數2.png"/>
-            </div>
-        </div>
-
-        <div class="v10" id="v10">
-            <h4>高中畢業人口比例</h4>
-            <iframe src="{{ imagePath }}/高中畢業人口比例/高中.txt" frameborder="0" scrolling="auto" width="100%" height="50"></iframe>
-            <div class="image-container">
-                <img src="{{ imagePath }}/高中畢業人口比例/高中1.png"/>
-            </div>
-        </div>
-
-        <div class="v11" id="v11">
-            <h4>碩士畢業人口比例</h4>
-            <iframe src="{{ imagePath }}/碩士畢業人口比例/碩士.txt" frameborder="0" scrolling="auto" width="100%" height="50"></iframe>
-            <div class="image-container">
-                <img src="{{ imagePath }}/碩士畢業人口比例/碩士1.png"/>
-            </div>
-        </div>
-
-        <div class="v12" id="v12">
-            <h4>錄影監視器比例</h4>
-            <iframe src="{{ imagePath }}/錄影監視器比例/錄影監視器比例.txt" frameborder="0" scrolling="auto" width="100%" height="50"></iframe>
-            <div class="image-container">
-                <img src="{{ imagePath }}/錄影監視器比例/錄影監視器比例1.png"/>
-                <img src="{{ imagePath }}/錄影監視器比例/錄影監視器比例2.png"/>
-                <img src="{{ imagePath }}/錄影監視器比例/錄影監視器比例3.png"/>
-            </div>
-        </div>
-
-        <div class="v13" id="v13">
-            <h4>警民連線數</h4>
-            <iframe src="{{ imagePath }}/警民連線數/警民連線數.txt" frameborder="0" scrolling="auto" width="100%" height="50"></iframe>
-            <div class="image-container">
-                <img src="{{ imagePath }}/警民連線數/警民連線數1.png"/>
-                <img src="{{ imagePath }}/警民連線數/警民連線數2.png"/>
-            </div>
-        </div>
+    <section id="stat">
+        <h2>案件統計</h2>
+        <img src="./static/images/leveldistribution_output.jpg" alt="治安等級分布"/>
+        <p>依案件總和數量次數，分成綠、黃、紅三種治安等級，平均案件數為12.92件，中位數為11，標準差為9.12。</p>
+        <p>黃色治安等級門檻=案件數之中位數+1標準差，超過21個案件之里標為黃色。</p>
+        <p>紅色治安等級門檻=案件數之中位數+2標準差，超過30個案件之里標為紅色。</p>
     </section>
 </body>
 </html>

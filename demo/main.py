@@ -72,15 +72,15 @@ def report():
             
             new_med = np.median(total_list)
             new_std = np.std(total_list)
-            green_score = new_med - new_std
-            red_score = new_med + new_std
+            yellow_score = new_med + new_std
+            red_score = new_med + 2*new_std
             
             # update each li's label
             for new in db.find():
                 new_label = ''
-                if new['total'] > red_score: new_label = 'red'
-                elif new['total'] < green_score: new_label = 'green'
-                else: new_label = 'yellow'
+                if new['total'] >= red_score: new_label = 'red'
+                elif new['total'] >= yellow_score: new_label = 'yellow'
+                else: new_label = 'green'
                 if new['label'] != new_label:
                     db.update_one(
                         {'li': new['li']},
