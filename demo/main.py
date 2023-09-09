@@ -13,7 +13,6 @@ from geopy.geocoders import Nominatim
 '''Mongo DB'''
 # please set the environment variable before executing the code
 # export MONGO_KEY='asdzxc8914' 
-# mongo_password = os.environ.get('MONGO_KEY')
 mongo_password = os.environ.get('MONGO_KEY', 'asdzxc8914')
 client = pymongo.MongoClient(f"mongodb+srv://qwe9887476:{mongo_password}@cluster0.zflrkw0.mongodb.net/?retryWrites=true&w=majority")
 db = client.taipei.case

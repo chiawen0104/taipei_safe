@@ -12,8 +12,6 @@ from geopy.geocoders import Nominatim
 
 
 '''Mongo DB'''
-# please set the environment variable before executing the code
-# export MONGO_KEY='asdzxc8914' 
 mongo_password = 'asdzxc8914' 
 client = pymongo.MongoClient(f"mongodb+srv://qwe9887476:{mongo_password}@cluster0.zflrkw0.mongodb.net/?retryWrites=true&w=majority")
 db = client.taipei.case
@@ -41,7 +39,8 @@ def map():
 
 @app.route('/analysis')
 def analysis():
-    return render_template('analysis.html')
+    imagePath = './static/images/regression'
+    return render_template('analysis.html', imagePath=imagePath)
 
 
 
@@ -70,15 +69,15 @@ def report():
             
             new_med = np.median(total_list)
             new_std = np.std(total_list)
-            green_score = new_med - new_std
-            red_score = new_med + new_std
+            yellow_score = new_med + new_std
+            red_score = new_med + 2*new_std
             
             # update each li's label
             for new in db.find():
                 new_label = ''
-                if new['total'] > red_score: new_label = 'red'
-                elif new['total'] < green_score: new_label = 'green'
-                else: new_label = 'yellow'
+                if new['total'] >= red_score: new_label = 'red'
+                elif new['total'] >= yellow_score: new_label = 'yellow'
+                else: new_label = 'green'
                 if new['label'] != new_label:
                     db.update_one(
                         {'li': new['li']},
@@ -108,9 +107,9 @@ def linebot():
     try:
         json_data = json.loads(body)
         ### 輸入自己的 line token                        
-        access_token = '<line_token>' 
+        access_token = '+GVOs2NeuMmxAaJ+3c2YaIy15m2I8isYRSnboilPlYbwMqwzQGB1JM2SH2CGqw8Z6865TMX+2KYYwn6pEZAtNs53Z0lRisP8pPTmtq3v7pECzYcgLjGBD+5YKVUrTSxL90zaNESyz54HiIbrenJpcgdB04t89/1O/w1cDnyilFU=' 
         ### 輸入自己的 line secret
-        secret = '<line_secret>' 
+        secret = '85817508663a7d369c69e85491555bc3' 
         line_bot_api = LineBotApi(access_token)          
         handler = WebhookHandler(secret)                     
         signature = request.headers['X-Line-Signature']      
