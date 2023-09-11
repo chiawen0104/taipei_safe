@@ -1,5 +1,5 @@
 body {
-    background-color: rgba(255, 221, 0, 0.583);
+    background-color: #FFF3B0;
 }
 
 h1 {
@@ -8,8 +8,8 @@ h1 {
     font-weight:bold;
     text-align: center; 
     line-height: 3;  
-    text-shadow: 0.05em 0.1em 0.05em rgba(255, 166, 0, 0.806);
-    font-family:"Microsoft JhengHei";  
+    text-shadow: 0.05em 0.1em 0.05em #ffe26f;
+    font-family:"LiHei Pro";  
 }
 
 .group2{
@@ -20,13 +20,13 @@ h1 {
 }
  
 .button2 a{
-    background-color: rgba(255, 166, 0, 0.806);
+    background-color: #fabc3c;
     padding: 40px 40px;
     margin:20px 0px;
     text-align:center;
     display: block;
     cursor: pointer;
-    border: 5px solid  rgb(244, 134, 0, 0.8);
+    border: 5px solid  #ffad00;
     transition: all .3s linear;
     border-radius: 20px; 
     display: block;
@@ -34,6 +34,7 @@ h1 {
     text-decoration: none;
     font-size: 35px;
     font-weight:bold;
+    font-family:"LiHei Pro";  
     transition: all .3s linear;
 }
 .button2 a:hover {
@@ -41,4 +42,5 @@ h1 {
     color: rgb(255, 255, 255);
     font-weight:bold;
     font-size: 40px;
+    font-family:"LiHei Pro";  
 }

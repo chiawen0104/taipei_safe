@@ -1,21 +1,21 @@
 body {
-    background-color: rgba(255, 221, 0, 0.583);
+    background-color: #FFF3B0;
 }
 
 h1 {
-    color: black;
+    color: white;
     font-size: 50px;
     font-weight:bold;
     text-align: center;
     line-height: 1.25; 
-    text-shadow: 0.05em 0.1em 0.1em rgba(255, 255, 255, 0.806);
-    font-family:"Microsoft JhengHei";  
-    background-color: rgba(255, 166, 0, 0.806);
+    text-shadow: 0.1em 0.1em 0.1em #000000;
+    font-family:"LiHei Pro";  
+    background-color: #fabc3c;
     padding: 10px 10px;
     margin:20px 50px;
     text-align:center;
     display: block;
-    border: 5px solid  rgb(244, 134, 0, 0.8);
+    border: 5px solid  #ffad00;
     border-radius: 20px; 
     text-decoration: none;
 }
@@ -29,7 +29,7 @@ h1 {
     align-items: center;  
     cursor: pointer;
     border: 5px rgb(244, 134, 0, 0.8);
-    border-style:inset;
+    border-style:outset;
     border-radius: 20px;
     transition: all .3s linear;
     width:100px;
@@ -96,7 +96,7 @@ h1 {
     cursor: pointer;
     border: 5px solid  rgb(244, 134, 0, 0.8);
     border-radius: 20px; 
-    border-style:inset;
+    border-style:outset;
     height: 80px;
     width: 250px;
     margin:30px 10px;
@@ -118,4 +118,5 @@ h1 {
 .result{
     font-size: 35px;
     margin:0px 75px;
+    font-weight:bold;
 }

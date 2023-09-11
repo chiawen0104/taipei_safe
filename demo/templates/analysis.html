@@ -3,18 +3,22 @@
 <head>
     <title>治安分析</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='analysis_styles.css') }}">
+     <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
     <h1>治安分析</h1>
     <div class="back"><a href="/">回到主選單</a></div>
     
     <section id="regression">
-        <h2>回歸分析</h2>
-        <p>hint:回歸模型數學式</p>
-        <h3>摘要</h3>
-        <p>hint:舉例說明三個變數的係數意義</p>
+        <h2>迴歸分析</h2>
+        <p class="reg"> $$ Y ：犯罪率 = {近五年犯罪次數 \over 各里人口總數} \times 100\ \%$$</p>
+        <h3>分析摘要</h3>
+        <p>我們使用線性回歸分析來研究對治安結果具有重要影響的多個變數。在這 13 個變數中，我們發現有 5 個變數對犯罪率有顯著影響。</p>
+        <p>其中，我們注意到監視器的設置對治安有顯著影響。以犯罪率最高的學府里為例，其犯罪率為 1.87%，並且主要犯罪類型是腳踏車竊盜案。如果能夠在適當的地點增加一台監視器，則可能使該地區的犯罪率下降 0.06%。</p>  
+        <p>此外，我們也發現里守望相助隊的比例對各里的犯罪率有顯著影響。以近五年住宅竊盜案最多的忠勤里為例（共有 17 起報告的住宅竊盜案），該區的里守望相助隊比例為 17.29%。如果該比例增加1%，則可能有效地減少該地區近五年的住宅竊盜案約 0.06起。</p>   
+        <p>此外，我們也關注教育程度對里的犯罪率的影響。我們觀察到大學畢業比例與里的犯罪率呈負相關。隨著大學畢業比例逐漸增加，政府可以考慮，每增加 1 個百分點的大學畢業比例，可能會使該里的犯罪率下降 0.03%，在這樣的假設之下來制定治安維護的預算目標決策。</p>
         <h3>重要變數</h3>
-        <img src="{{ imagePath }}/../keyfactor_output.jpg" alt="主要影響治安因素"/>
+        <img src="{{ imagePath }}/../keyfactor_output.jpg" style="display:block; margin:auto; width: 450px; border: 5px solid  rgb(244, 134, 0, 0.8);" alt="主要影響治安因素"/>
 
         <h3>其他變數</h3>
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -22,10 +26,10 @@
         <div class="wrap">
         <table>
             <tr>
-                <th style="width: 15%;">變數</th>
+                <th style="width: 25%;">變數</th> 
                 <th style="width: 35%;">圖一</th>
                 <th style="width: 35%;">圖二</th>
-                <th style="width: 15%;">說明</th>
+                <th style="width: 5%;">說明</th>
             </tr>
             <tr>
                 <td>大學畢業人口比例</td>
@@ -111,7 +115,7 @@
 
     <section id="stat">
         <h2>案件統計</h2>
-        <img src="{{ imagePath }}/../leveldistribution_output.jpg" alt="治安等級分布"/>
+        <img src="{{ imagePath }}/../leveldistribution_output.jpg" style="display:block; margin:auto; width: 450px; border: 5px solid  rgb(244, 134, 0, 0.8);" alt="治安等級分布"/>
         <p>依案件總和數量次數，分成綠、黃、紅三種治安等級，平均案件數為12.92件，中位數為11，標準差為9.12。</p>
         <p>黃色治安等級門檻=案件數之中位數+1標準差，超過21個案件之里標為黃色。</p>
         <p>紅色治安等級門檻=案件數之中位數+2標準差，超過30個案件之里標為紅色。</p>
