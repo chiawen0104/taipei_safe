@@ -9,7 +9,7 @@ db = client.taipei
 collection = db.case
 collection.delete_many({})
 
-with open('./li_data_2.json', 'r') as f:
+with open('./li_data.json', 'r') as f:
     myList = json.load(f)
     # print(len(myList))
 
