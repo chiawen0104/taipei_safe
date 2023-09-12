@@ -3,7 +3,7 @@
 <head>
     <title>治安分析</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='analysis_styles.css') }}">
-     <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
     <h1>治安分析</h1>
@@ -11,13 +11,13 @@
     
     <section id="regression">
         <h2>一、迴歸分析</h2>
-        <img src="{{ imagePath }}/../reg1.jpg" style="display:block; margin:auto; width: 1200px; "/>
+        <img src="{{ imagePath }}/reg1.jpg" style="display:block; margin:auto; width: 1200px; "/>
         <h3>分析摘要</h3>
-        <img src="{{ imagePath }}/../reg2.jpg" style="display:block; margin:auto; width: 1200px; "/>
-        <p>我們使用線性回歸分析來研究對治安結果具有重要影響的多個變數。在 13 個變數中，我們發現有 5 個變數對犯罪率有顯著影響，其中 3 個變數與犯罪率呈負相關：</p>
-        <p>1. 錄影監視器比例：以犯罪率最高的學府里為例，其犯罪率為 1.87%，主要犯罪類型是腳踏車竊盜案。如果監視器與人口的比例增加1%，可能使該地區的犯罪率下降0.06%。</p>  
-        <p>2. 里守望相助隊比例：以近五年住宅竊盜案最多的忠勤里為例（共有 17 起報告的住宅竊盜案），該區的里守望相助隊與人口的比例為 17.29%。若該比例增加1%，此區近五年的住宅竊盜案有可能減少0.05件。</p>   
-        <p>3. 大學畢業的人口比例：我們可以關注到大學畢業人口比例每增加 1％，可能會使該里的犯罪率下降 2.86%，因此提高該地高知識居民佔比是值得思考的方向。</p>
+        <img src="{{ imagePath }}/reg2.jpg" style="display:block; margin:auto; width: 1200px; "/>
+        <p style="font-size: 18px;">我們使用線性回歸分析來研究對犯罪率具有重要影響的多個變數。剔除共線性的變數，回歸式共有 13 個變數，有 5 個變數對犯罪率具顯著影響，其中 3 個變數與犯罪率呈負相關：</p>
+        <p style="font-size: 18px;">1. 錄影監視器比例：以犯罪率最高的學府里為例，其犯罪率為 1.87%，主要犯罪類型是腳踏車竊盜案。如果監視器與人口的比例增加1%，可能使該地區的犯罪率下降0.06%。</p>  
+        <p style="font-size: 18px;">2. 里守望相助隊比例：以近五年住宅竊盜案最多的忠勤里為例（共有 17 起報告的住宅竊盜案），該區的里守望相助隊與人口的比例為 17.29%。若該比例增加1%，此區近五年的住宅竊盜案有可能減少0.05件。</p>   
+        <p style="font-size: 18px;">3. 大學畢業的人口比例：我們可以關注到大學畢業人口比例每增加 1％，可能會使該里的犯罪率下降 2.86%，因此提高該地高知識居民佔比是值得思考的方向。</p>
 
         <h3>所有變數</h3>
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -25,143 +25,198 @@
         <div class="wrap">
         <table>
             <tr>
-                <th style="width: 25%;">變數</th> 
-                <th style="width: 50%;">分佈</th>
-                <th style="width: 25%;">說明</th>
+                <th style="width: 10%;">變數</th> 
+                <th style="width: 38%;">Top 10</th>
+                <th style="width: 38%;">Last 10</th>
+                <th style="width: 14%;">說明</th>
             </tr>
             <tr>
-                <td>大學畢業人口比例</td>
-                <td>
-                    <div class='tableauPlaceholder' id='viz1694352445094' style='position: relative'><noscript><a href='#'><img alt='儀表板窗格 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16943500491750&#47;1_1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16943500491750&#47;1_1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16943500491750&#47;1_1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /><param name='filter' value='publish=yes' /></object></div>                
-                    <script type='text/javascript'>                    
-                        var divElement = document.getElementById('viz1694352445094');                    
-                        var vizElement = divElement.getElementsByTagName('object')[0];                    
-                        // if ( divElement.offsetWidth > 800 ) { 
-                        //     vizElement.style.width='1000px';vizElement.style.height='827px';
-                        // } 
-                        // else if ( divElement.offsetWidth > 500 ) { 
-                        //     vizElement.style.width='1000px';vizElement.style.height='827px';
-                        // } 
-                        // else { 
-                        //     vizElement.style.width='100%';vizElement.style.height='727px';
-                        // }    
-                        vizElement.style.width='1000px';vizElement.style.height='500px';                 
-                        var scriptElement = document.createElement('script');                    
-                        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
-                        vizElement.parentNode.insertBefore(scriptElement, vizElement);                
-                    </script> 
+                <td style="text-align: center; font-weight: bold;">
+                    <div class="reg">$$x_1:$$</div>
+                    大學畢業人口比例
                 </td>
-                <td><iframe src="{{ imagePath }}/大學畢業人口比例/大學畢業人口比例.txt" frameborder="0" scrolling="auto"></iframe></td>
-            <!-- </tr>
-                <td>公寓大廈守望相助隊比例</td>
-                <td></td>
-                <td><iframe src="{{ imagePath }}/公寓大廈守望相助隊比例/公寓大廈.txt" frameborder="0" scrolling="auto"></iframe></td>
-            </tr> -->
-            <!-- <tr>
-                <td>戶數</td>
                 <td>
-                    <div class='tableauPlaceholder' id='viz1694357223914' style='position: relative'><noscript><a href='#'><img alt='儀表板窗格 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16943571936100&#47;1_1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16943571936100&#47;1_1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16943571936100&#47;1_1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /><param name='filter' value='publish=yes' /></object></div>                
-                    <script type='text/javascript'>                    
-                        var divElement = document.getElementById('viz1694357223914');                    
-                        var vizElement = divElement.getElementsByTagName('object')[0];                    
-                        // if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     
-                        vizElement.style.width='1000px';vizElement.style.height='500px'; 
-                        var scriptElement = document.createElement('script');                    
-                        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
-                        vizElement.parentNode.insertBefore(scriptElement, vizElement);                
-                        </script>
+                    <div class='tableauPlaceholder' id='viz1694543336428' style='position: relative'><noscript><a href='#'><img alt='大學畢業人口比例前十名 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945427870840&#47;1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16945427870840&#47;1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945427870840&#47;1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1694543336428');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
                 </td>
-                <td><iframe src="{{ imagePath }}/戶數/戶數.txt" frameborder="0" scrolling="auto"></iframe></td>
-            </tr>
-            <tr>
-                <td>男性比例</td>
-                <td><img src="{{ imagePath }}/男女比例/男女比例1.png"/></td>
-                <td><img src="{{ imagePath }}/男女比例/男女比例2.png"/></td>
-                <td><iframe src="{{ imagePath }}/男女比例/男女比例.txt" frameborder="0" scrolling="auto"></iframe></td>
-            </tr>
-            <tr>
-                <td>里守望相助隊比例</td>
-                <td><img src="{{ imagePath }}/里守望相助隊比例/里守望相助隊1.png"/></td>
-                <td><img src="{{ imagePath }}/里守望相助隊比例/里守望相助隊2.png"/></td>
-                <td><iframe src="{{ imagePath }}/里守望相助隊比例/里守望相助隊.txt" frameborder="0" scrolling="auto"></iframe></td>
-            </tr>
-            <tr>
-                <td>所得中位數</td>
-                <td><img src="{{ imagePath }}/所得中位數/所得中位數1.png"/></td>
-                <td></td>
-                <td><iframe src="{{ imagePath }}/所得中位數/所得中位數.txt" frameborder="0" scrolling="auto"></iframe></td>
-            </tr>
-            <tr>
-                <td>社區守望相助隊比例</td>
-                <td><img src="{{ imagePath }}/社區守望相助隊比例/社區守望相助隊1.png"/></td>
-                <td></td>
-                <td><iframe src="{{ imagePath }}/社區守望相助隊比例/社區守望相助隊.txt" frameborder="0" scrolling="auto"></iframe></td>
-            </tr>
-            <tr>
-                <td>員警比例</td>
-                <td><img src="{{ imagePath }}/員警比例/員警比例1.png"/></td>
-                <td><img src="{{ imagePath }}/員警比例/員警比例2.png"/></td>
-                <td><iframe src="{{ imagePath }}/員警比例/員警比例.txt" frameborder="0" scrolling="auto"></iframe></td>
-            </tr>
-            <tr>
-                <td>家戶聯防比例</td>
-                <td><img src="{{ imagePath }}/家戶聯防數/家戶聯防數1.png"/></td>
-                <td><img src="{{ imagePath }}/家戶聯防數/家戶聯防數2.png"/></td>
-                <td><iframe src="{{ imagePath }}/家戶聯防數/家戶聯防數.txt" frameborder="0" scrolling="auto"></iframe></td>
-            </tr>
-            <tr>
-                <td>高中畢業人口比例</td>
-                <td><img src="{{ imagePath }}/高中畢業人口比例/高中1.png"/></td>
-                <td></td>
-                <td><iframe src="{{ imagePath }}/高中畢業人口比例/高中.txt" frameborder="0" scrolling="auto"></iframe></td>
-            </tr>
-            <tr>
-                <td>碩士畢業人口比例</td>
                 <td>
-                    <div class='tableauPlaceholder' id='viz1694362936897' style='position: relative'><noscript><a href='#'><img alt='儀表板窗格 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16943628341090&#47;1_1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16943628341090&#47;1_1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16943628341090&#47;1_1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /><param name='filter' value='publish=yes' /></object></div>                
-                    <script type='text/javascript'>                    
-                        var divElement = document.getElementById('viz1694362936897');                    
-                        var vizElement = divElement.getElementsByTagName('object')[0];                    
-                        if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     
-                        var scriptElement = document.createElement('script');                    
-                        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
-                        vizElement.parentNode.insertBefore(scriptElement, vizElement);                
-                    </script>
+                    <div class='tableauPlaceholder' id='viz1694543386345' style='position: relative'><noscript><a href='#'><img alt='大學畢業人口比例後十名 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945426011660&#47;2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16945426011660&#47;2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945426011660&#47;2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1694543386345');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>    
+                </td>
+                <!-- <td><iframe src="{{ imagePath }}/大學畢業人口比例/大學畢業人口比例.txt" frameborder="0" scrolling="auto"></iframe></td> -->
+                <td>P-value小於0.05，且(在95%信賴區間)呈現負相關。這可能代表大學畢業人口比例越高的里越沒有犯罪傾向。</td>
+            </tr>
+            <tr>
+                <td style="text-align: center; font-weight: bold;">
+                    <div class="reg">$$x_2:$$</div>
+                    家戶聯防數比例
+                </td>
+                <td>
+                    <div class='tableauPlaceholder' id='viz1694546456447' style='position: relative'><noscript><a href='#'><img alt='家戶聯防數比例前十名 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945461240780&#47;1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16945461240780&#47;1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945461240780&#47;1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1694546456447');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </td>
+                <td>
+                    <div class='tableauPlaceholder' id='viz1694546470295' style='position: relative'><noscript><a href='#'><img alt='家戶聯防數比例後十名 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945461532550&#47;2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16945461532550&#47;2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945461532550&#47;2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1694546470295');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </td>
+                <!-- <td><iframe src="{{ imagePath }}/家戶聯防數比例/家戶聯防數比例.txt" frameborder="0" scrolling="auto"></iframe></td> -->
+                <td>P-value小於0.05，且治安等級與家戶聯防數(在95%信賴區間)呈現負相關。</td>
+            </tr>
+            <tr>
+                <td style="text-align: center; font-weight: bold;">
+                    <div class="reg">$$x_3:$$</div>
+                    錄影監視器比例
+                </td>
+                <td>
+                    <div class='tableauPlaceholder' id='viz1694546795099' style='position: relative'><noscript><a href='#'><img alt='錄影監視器比例前十名 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945459926660&#47;1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16945459926660&#47;1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945459926660&#47;1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1694546795099');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </td>
+                <td>
+                    <div class='tableauPlaceholder' id='viz1694546681267' style='position: relative'><noscript><a href='#'><img alt='錄影監視器比例後十名 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945460119230&#47;2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16945460119230&#47;2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945460119230&#47;2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1694546681267');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </td>
+                <td>P-value小於0.05，且犯罪率與錄影監視器比例(在95%信賴區間)呈現負相關，這意味著在錄影監視器較高的里，該區的治安相對可能較佳</td>
+                <!-- <td><iframe src="{{ imagePath }}/錄影監視器比例/錄影監視器比例.txt" frameborder="0" scrolling="auto"></iframe></td> -->
+            </tr>
+            <tr>
+                <td style="text-align: center; font-weight: bold;">
+                    <div class="reg">$$x_4:$$</div>
+                    員警比例
+                </td>
+                <td>
+                    <div class='tableauPlaceholder' id='viz1694546380272' style='position: relative'><noscript><a href='#'><img alt='員警比例前十名 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945445994840&#47;1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16945445994840&#47;1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945445994840&#47;1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1694546380272');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </td>
+                <td>
+                    <div class='tableauPlaceholder' id='viz1694546393256' style='position: relative'><noscript><a href='#'><img alt='員警比例後十名 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945446145480&#47;2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16945446145480&#47;2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945446145480&#47;2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1694546393256');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </td>
+                <td>P-value小於0.05，且犯罪率與員警人數(在95%信賴區間)呈現正相關，可能是因為治安較差地區有較多警員維護該地區之治安。</td>
+                <!-- <td><iframe src="{{ imagePath }}/員警比例/員警比例.txt" frameborder="0" scrolling="auto"></iframe></td> -->
+            </tr>
+            <tr>
+                <td style="text-align: center; font-weight: bold;">
+                    <div class="reg">$$x_5:$$</div>
+                    里守望相助隊比例
+                </td>
+                <td>
+                    <div class='tableauPlaceholder' id='viz1694543996182' style='position: relative'><noscript><a href='#'><img alt='里守望相助隊比例前十名 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945439589180&#47;1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16945439589180&#47;1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945439589180&#47;1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1694543996182');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </td>
+                <td>
+                    <div class='tableauPlaceholder' id='viz1694544019222' style='position: relative'><noscript><a href='#'><img alt='里守望相助隊比例後十名 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945439731280&#47;2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16945439731280&#47;2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945439731280&#47;2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1694544019222');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </td>
+                <td>P-value小於0.05，且治安等級與守望相助隊人數(在95%信賴區間)呈現負相關，這代表里守望相助隊對於治安維護有顯著的影響力，可以持續推動治安全民化。</td>
+                <!-- <td><iframe src="{{ imagePath }}/里守望相助隊比例/里守望相助隊比例.txt" frameborder="0" scrolling="auto"></iframe></td> -->
+            </tr>
+            <tr>
+                <td style="text-align: center; font-weight: bold;">
+                    <div class="reg">$$x_6:$$</div>
+                    高中畢業人口比例
+                </td>
+                <td>
+                    <div class='tableauPlaceholder' id='viz1694546603052' style='position: relative'><noscript><a href='#'><img alt='高中畢業人口比例前十名 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945459169800&#47;1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16945459169800&#47;1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945459169800&#47;1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1694546603052');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </td>
+                <td>
+                    <div class='tableauPlaceholder' id='viz1694546614882' style='position: relative'><noscript><a href='#'><img alt='高中畢業人口比例後十名 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945459433790&#47;2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16945459433790&#47;2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945459433790&#47;2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1694546614882');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </td>
+                <td>P-value大於0.05，因此該變數對犯罪率較不具顯著影響力。</td>
+                <!-- <td><iframe  src="{{ imagePath }}/高中畢業人口比例/高中畢業人口比例.txt" frameborder="0" scrolling="auto"></iframe></td> -->
+            </tr>
+            <tr>
+                <td style="text-align: center; font-weight: bold;">
+                    <div class="reg">$$x_7:$$</div>
+                    碩士畢業人口比例
+                </td>
+                <td>
+                    <div class='tableauPlaceholder' id='viz1694546637124' style='position: relative'><noscript><a href='#'><img alt='碩士畢業人口比例前十名 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945446537910&#47;1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16945446537910&#47;1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945446537910&#47;1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1694546637124');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </td>
+                <td>
+                    <div class='tableauPlaceholder' id='viz1694546651198' style='position: relative'><noscript><a href='#'><img alt='碩士畢業人口比例後十名 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945446695130&#47;2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16945446695130&#47;2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945446695130&#47;2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1694546651198');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </td>
+                <td>P-value大於0.05，因此該變數對犯罪率較不具顯著影響力。</td>
+                <!-- <td><iframe src="{{ imagePath }}/碩士畢業人口比例/碩士畢業人口比例.txt" frameborder="0" scrolling="auto"></iframe></td> -->
+            </tr>
+            <tr>
+                <td style="text-align: center; font-weight: bold;">
+                    <div class="reg">$$x_8:$$</div>
+                    公寓大廈守望相助隊比例
+                </td>
+                <td>
+                    <div class='tableauPlaceholder' id='viz1694543251892' style='position: relative'><noscript><a href='#'><img alt='公寓大廈守望相助隊比例前十名 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945430310020&#47;1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16945430310020&#47;1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945430310020&#47;1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1694543251892');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </td>
+                <td>
+                    <div class='tableauPlaceholder' id='viz1694543156989' style='position: relative'><noscript><a href='#'><img alt='公寓大廈守望相助隊比例後十名 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945430435530&#47;2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16945430435530&#47;2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945430435530&#47;2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1694543156989');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </td>
+                <td>P-value大於0.05，因此其對於治安維護較不具顯著性其影響。</td>
+                <!-- <td><iframe src="{{ imagePath }}/公寓大廈守望相助隊比例/公寓大廈守望相助隊比例.txt" frameborder="0" scrolling="auto"></iframe></td> -->
+            </tr>
+            <tr>
+                <td style="text-align: center; font-weight: bold;">
+                    <div class="reg">$$x_9:$$</div>
+                    戶數
+                </td>
+                <td>
+                    <div class='tableauPlaceholder' id='viz1694543636531' style='position: relative'><noscript><a href='#'><img alt='戶數前十名 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945436004030&#47;1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16945436004030&#47;1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945436004030&#47;1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1694543636531');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </td>
+                <td>
+                    <div class='tableauPlaceholder' id='viz1694543662040' style='position: relative'><noscript><a href='#'><img alt='戶數後十名 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945436177160&#47;2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16945436177160&#47;2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945436177160&#47;2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1694543662040');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </td>
+                <td>P-value大於0.05，因此該變數對犯罪率較不具顯著影響力。</td>
+                <!-- <td><iframe src="{{ imagePath }}/戶數/戶數.txt" frameborder="0" scrolling="auto"></iframe></td> -->
+            </tr> 
+            <tr>
+                <td style="text-align: center; font-weight: bold;">
+                    <div class="reg">$$x_{10}:$$</div>
+                    男性比例
+                </td>
+                <td>
+                    <div class='tableauPlaceholder' id='viz1694543847291' style='position: relative'><noscript><a href='#'><img alt='男性人口比例前十名 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945438208540&#47;1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16945438208540&#47;1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945438208540&#47;1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1694543847291');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </td>
+                <td>
+                    <div class='tableauPlaceholder' id='viz1694543861997' style='position: relative'><noscript><a href='#'><img alt='男性人口比例後十名 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945438353160&#47;2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16945438353160&#47;2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945438353160&#47;2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1694543861997');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </td>
+                <td>P-value大於0.05，因此該變數對犯罪率較不具顯著影響力。女性比例未納入迴歸式，否則會有共線性問題。</td>
+                <!-- <td><iframe src="{{ imagePath }}/男性比例/男性比例.txt" frameborder="0" scrolling="auto"></iframe></td> -->
+            </tr>
+            <tr>
+                <td style="text-align: center; font-weight: bold;">
+                    <div class="reg">$$x_{11}:$$</div>
+                    所得中位數
+                </td>
+                <td>
+                    <div class='tableauPlaceholder' id='viz1694546220095' style='position: relative'><noscript><a href='#'><img alt='所得中位數前十名 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945441617360&#47;1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16945441617360&#47;1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945441617360&#47;1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1694546220095');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </td>
+                <td>
+                    <div class='tableauPlaceholder' id='viz1694546234167' style='position: relative'><noscript><a href='#'><img alt='所得中位數後十名 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945441748590&#47;2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16945441748590&#47;2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945441748590&#47;2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1694546234167');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </td>
+                <td>P-value大於0.05，因此該變數對犯罪率較不具顯著影響力。</td>
+                <!-- <td><iframe src="{{ imagePath }}/所得中位數/所得中位數.txt" frameborder="0" scrolling="auto"></iframe></td> -->
+            </tr>
+            <tr>
+                <td style="text-align: center; font-weight: bold;">
+                    <div class="reg">$$x_{12}:$$</div>
+                    警民連線數比例
+                </td>
+                <td>
+                    <div class='tableauPlaceholder' id='viz1694546698553' style='position: relative'><noscript><a href='#'><img alt='警民連線比例前十名 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945460560660&#47;1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16945460560660&#47;1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945460560660&#47;1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1694546698553');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </td>
+                <td>
+                    <div class='tableauPlaceholder' id='viz1694546709154' style='position: relative'><noscript><a href='#'><img alt='警民連線比例後十名 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945460720720&#47;2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16945460720720&#47;2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945460720720&#47;2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1694546709154');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </td>
+                <td>P-value大於0.05，因此該變數對犯罪率較不具顯著影響力。</td>
+                <!-- <td><iframe src="{{ imagePath }}/警民連線數比例/警民連線數比例.txt" frameborder="0" scrolling="auto"></iframe></td> -->
+            </tr>
+            <tr>
+                <td style="text-align: center; font-weight: bold;">
+                    <div class="reg">$$x_{13}:$$</div>
+                    社區守望相助隊比例
+                </td>
+                <td>
+                    <div class='tableauPlaceholder' id='viz1694546312233' style='position: relative'><noscript><a href='#'><img alt='社區守望相助隊比例前十名 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945445532100&#47;1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16945445532100&#47;1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16945445532100&#47;1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1694546312233');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
                 </td>
                 <td></td>
-                <td><iframe src="{{ imagePath }}/碩士畢業人口比例/碩士.txt" frameborder="0" scrolling="auto"></iframe></td>
+                <td>P-value大於0.05，因此該變數對犯罪率較不具顯著影響力。後十名因為皆為0，所以僅列出前十名。</td>
+                <!-- <td><iframe src="{{ imagePath }}/社區守望相助隊比例/社區守望相助隊比例.txt" frameborder="0" scrolling="auto"></iframe></td> -->
             </tr>
-            <tr>
-                <td>錄影監視器比例</td>
-                <td>
-                    <div class='tableauPlaceholder' id='viz1694372018859' style='position: relative'><noscript><a href='#'><img alt='儀表板窗格 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16943720094980&#47;1_1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16943720094980&#47;1_1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_16943720094980&#47;1_1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /><param name='filter' value='publish=yes' /></object></div>                
-                    <script type='text/javascript'>                    
-                        var divElement = document.getElementById('viz1694372018859');                    
-                        var vizElement = divElement.getElementsByTagName('object')[0];                    
-                        if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     
-                        var scriptElement = document.createElement('script');                    
-                        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
-                        vizElement.parentNode.insertBefore(scriptElement, vizElement);                
-                        </script>
-                </td>
-                <td><iframe src="{{ imagePath }}/錄影監視器比例/錄影監視器比例.txt" frameborder="0" scrolling="auto"></iframe></td>
-            </tr>
-            <tr>
-                <td>警民連線比例</td>
-                <td><img src="{{ imagePath }}/警民連線數/警民連線數1.png"/></td>
-                <td><img src="{{ imagePath }}/警民連線數/警民連線數2.png"/></td>
-                <td><iframe src="{{ imagePath }}/警民連線數/警民連線數.txt" frameborder="0" scrolling="auto"></iframe></td>
-            </tr> -->
         </table>
         </div>
     </section>
 
     <section id="stat">
         <h2>二、案件統計</h2>
-        <img src="{{ imagePath }}/../leveldistribution_output.jpg" style="display:block; margin:auto; width: 600px; border: 0px solid  rgb(244, 134, 0, 0.8);" alt="治安等級分布"/>
-        <p>依案件總和數量次數，分成綠、黃、紅三種治安等級，平均案件數為12.92件，中位數為11，標準差為9.12。</p>
-        <p>黃色治安等級門檻=案件數之中位數+1標準差，超過21個案件之里標為黃色。</p>
-        <p>紅色治安等級門檻=案件數之中位數+2標準差，超過30個案件之里標為紅色。</p>
+        <img src="{{ imagePath }}/stat.jpg" style="display:block; margin:auto; width: 1200px; "/>
     </section>
 </body>
 </html>

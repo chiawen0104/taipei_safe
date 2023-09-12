@@ -1,21 +1,21 @@
 body {
-    background-color: rgba(255, 221, 0, 0.583);
+    background-color: #FFF3B0;
 }
 
 h1 {
-    color: black;
+    color: white;
     font-size: 50px;
     font-weight:bold;
     text-align: center; 
     line-height: 1.25;  
-    text-shadow: 0.05em 0.1em 0.1em rgba(255, 255, 255, 0.806);
-    font-family:"Microsoft JhengHei";  
-    background-color: rgba(255, 166, 0, 0.806);
+    text-shadow: 0.1em 0.1em 0.1em #000000;
+    font-family:"LiHei Pro";  
+    background-color: #fabc3c;
     padding: 10px 10px;
     margin:20px 50px;
     text-align:center;
     display: block;
-    border: 5px solid  rgb(244, 134, 0, 0.8);
+    border: 5px solid #ffad00;
     border-radius: 20px;
     text-decoration: none;
 }
@@ -29,7 +29,7 @@ h1 {
     align-items: center;  
     cursor: pointer;
     border: 5px rgb(244, 134, 0, 0.8);
-    border-style:inset;
+    border-style:outset;
     border-radius: 20px;
     transition: all .3s linear;
     width:100px;
@@ -49,28 +49,24 @@ h1 {
     justify-content:space-evenly; 
 }
 img{
-    width: 500px;
+    width: 300px;
     height: 100%;
     /* border:2px solid #ccc; */
     padding:8px;
     /* box-shadow: 3px 3px 4px #ccc; */
-    margin-right: 10px; 
+    margin-right: 1px; 
 }
 
-
-.indented-list {
-    text-indent: 10px;
-}
 
 
 .wrap{
-    overflow:hidden;
+    overflow:auto; /* 改為 auto 才會有捲軸 */
     border-radius:10px 10px 0px 0px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
 }
 
 tr{
-    border-bottom: 1px solid #6b675d;
+    border-bottom: 1px solid #000;
 }
 
 table{
@@ -78,12 +74,56 @@ table{
     border-collapse: separate;
     width: 100%;
     border-spacing: 0;
-    border: 1px solid #6b675d;
+    border: 5px solid rgb(244, 134, 0, 0.8);
 }
 
 th{
-    background-color: #6b675d;
+    background-color: rgb(244, 134, 0, 0.8);
     color:#ffffff;
     width:25vw;
-    height:75px;
+    height:30px;
+}
+
+td {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    color: #333;
+    /* font-weight: bold; */
+}
+
+h2{
+    -webkit-text-stroke: 1.5px black;
+    color: #FFF3B0;
+    font-size:40px;
+    text-shadow:
+       3px 3px 0 #000,
+     -0.5px -0.5px 0 #000,  
+      0.5px -0.5px 0 #000,
+      -0.5px 1px 0 #000,
+       0.5px 0.5px 0 #000;
+ }
+
+h3{
+    -webkit-text-stroke: 1px black;
+    color: #FFF3B0;
+    font-size:25px;
+    text-shadow:
+       2px 2px 0 #000,
+     -0.5px -0.5px 0 #000,  
+      0.5px -0.5px 0 #000,
+      -0.5px 1px 0 #000,
+       0.5px 0.5px 0 #000;
+}
+
+.reg{
+    font-weight:bold;
+    font-size:20px;
+    font-family: "LiHei Pro";
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+pre {
+    font-size:20px;
 }

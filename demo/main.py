@@ -40,7 +40,7 @@ def map():
 
 @app.route('/analysis')
 def analysis():
-    imagePath = './static/images/regression'
+    imagePath = './static/images'
     return render_template('analysis.html', imagePath=imagePath)
 
 

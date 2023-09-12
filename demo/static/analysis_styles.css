@@ -58,10 +58,6 @@ img{
 }
 
 
-.indented-list {
-    text-indent: 10px;
-}
-
 
 .wrap{
     overflow:auto; /* 改為 auto 才會有捲軸 */
@@ -88,6 +84,13 @@ th{
     height:30px;
 }
 
+td {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    color: #333;
+    /* font-weight: bold; */
+}
+
 h2{
     -webkit-text-stroke: 1.5px black;
     color: #FFF3B0;
@@ -100,7 +103,7 @@ h2{
        0.5px 0.5px 0 #000;
  }
 
- h3{
+h3{
     -webkit-text-stroke: 1px black;
     color: #FFF3B0;
     font-size:25px;
@@ -110,22 +113,17 @@ h2{
       0.5px -0.5px 0 #000,
       -0.5px 1px 0 #000,
        0.5px 0.5px 0 #000;
- }
+}
 
- .reg{
+.reg{
     font-weight:bold;
-    font-size:25px;
+    font-size:20px;
     font-family: "LiHei Pro";
     display: flex;
     justify-content: center; 
     align-items: center;
- }
+}
 
- .var{
-    font-weight:bold;
-    font-size:18px;
-    font-family: "LiHei Pro";
-    display: flex;
-    justify-content: left; 
-    align-items: left;
- }
+pre {
+    font-size:20px;
+}

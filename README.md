@@ -15,11 +15,15 @@ line-bot-sdk==3.1.0
 python3 demo/main.py
 ```
 
+## Deploy
+```
+bash deploy/deploy_remote.sh
+```
 
 ## Mongo DB 
-Do not use these commands when running demo.
+Do not use these commands when starting Demo.
 
-### Connect to the cluster 
+### Connect to the database 
 ```
 python -m pip install pymongo==3.6
 python3 data/connect_mongo.py
