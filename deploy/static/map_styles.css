@@ -12,12 +12,11 @@ h1 {
     font-family:"LiHei Pro";  
     background-color: #fabc3c;
     padding: 10px 10px;
-    margin:20px 50px;
+    margin:20px 20px;
     display: block;
     border: 5px solid  #ffad00;
     border-radius: 20px; 
     text-decoration: none;
-    font-weight:bold;
 }
 
 .back a{
