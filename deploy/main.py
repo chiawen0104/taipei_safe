@@ -118,12 +118,8 @@ def linebot():
         type = json_data['events'][0]['message']['type']     
         print(json_data) 
 
-        if type =='text':
-            msg = json_data['events'][0]['message']['text']  
-            print(msg)                                      
-            reply = msg
         ###### 使用者傳送地址訊息
-        elif type == 'location':
+        if type == 'location':
             lng = json_data['events'][0]['message']['longitude']
             lat = json_data['events'][0]['message']['latitude'] 
             lat_lng = f"{lat}, {lng}"
@@ -132,8 +128,10 @@ def linebot():
             location = geolocator.reverse(lat_lng)
             full_addr_list = location.address.split(",")
             for i in full_addr_list:
-                if "里" in i: village = i.strip()
-                else: "請再輸入更精確的地址哦~"
+                if "里" in i: 
+                    village = i.strip()
+                    break
+                else: village = "該里"
             print(str(village))
 
             for i in db.find():
@@ -143,9 +141,24 @@ def linebot():
                     else: color = "紅燈 🔴🔴🔴" 
                     reply = f"以下為 ▶ {i['li']} ◀ 治安資訊:\n🚩強盜: {i['burglary']} 件\n🚩搶劫: {i['robbery']} 件\n🚩自行車竊盜: {i['bike']} 件\n🚩機車竊盜: {i['motocycle']} 件\n🚩汽車竊盜: {i['car']} 件\n🚩住宅竊盜: {i['home']} 件\n🚩總案件數: {i['total']} 件\n\n🚦治安紅綠燈: {color}"
                     break
-                else: reply = "查無資料OAO"
+                else: reply = f"查無{village}資料OAO"
+        elif type =='text':
+            msg = json_data['events'][0]['message']['text']                                 
+            if "里" in msg:
+                i = msg.find("里")
+                village = msg[i-2:i+1]
+                for i in db.find():
+                    if i['li'] == village:
+                        if i['label'] == 'green': color = "綠燈 🟢🟢🟢"
+                        elif i['label'] == 'yellow': color = "黃燈 🟡🟡🟡"
+                        else: color = "紅燈 🔴🔴🔴" 
+                        reply = f"以下為 ▶ {i['li']} ◀ 治安資訊:\n🚩強盜: {i['burglary']} 件\n🚩搶劫: {i['robbery']} 件\n🚩自行車竊盜: {i['bike']} 件\n🚩機車竊盜: {i['motocycle']} 件\n🚩汽車竊盜: {i['car']} 件\n🚩住宅竊盜: {i['home']} 件\n🚩總案件數: {i['total']} 件\n\n🚦治安紅綠燈: {color}"
+                        break
+                    else: reply = "查無資料OAO"
+            else:
+                reply = "請輸入里名(OO里)或含里地址"
         else:
-            reply = '我目前還不太懂QAQ'
+            reply = '請輸入含里名地址、傳送位置資訊或點選選單內容!'
 
         print(reply)
         line_bot_api.reply_message(tk, TextSendMessage(reply)) #回傳訊息
