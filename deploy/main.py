@@ -12,7 +12,7 @@ from geopy.geocoders import Nominatim
 
 
 '''Mongo DB'''
-mongo_password = 'asdzxc8914' 
+mongo_password = os.environ.get('MONGO_KEY')
 client = pymongo.MongoClient(f"mongodb+srv://qwe9887476:{mongo_password}@cluster0.zflrkw0.mongodb.net/?retryWrites=true&w=majority")
 db = client.taipei.case
 
