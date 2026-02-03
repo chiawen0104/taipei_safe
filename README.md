@@ -2,6 +2,7 @@
 【金獎】資料創新應用競賽—臺北市科技普惠市政創新應用組
 「北市智慧安全小幫手：安心地圖2.0與治安回歸分析」
 
+Demo Video: https://youtube.com/shorts/Txkvg8PMKcI?feature=share
 ## Install Packages
 ```
 pip install -r requirements.txt
